@@ -52,4 +52,14 @@ public class AccountTest {
         assertEquals(12120f, account.balance);
     }
 
+    @Test
+    void generateMonthlyStatementShouldSubtractFeeAndAddInterest() {
+        Account account = new Account(12000f, 12f);
+        account.monthlyFee = 200f;
+
+        account.generateMonthlyStatement();
+
+        assertEquals(11918f, account.balance);
+    }
+
 }
