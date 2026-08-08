@@ -21,4 +21,22 @@ public class SavingsAccountTest {
         assertFalse(account.active);
     }
 
+    @Test
+    void depositShouldIncreaseBalanceWhenAccountIsActive() {
+        SavingsAccount account = new SavingsAccount(10000f, 5f);
+
+        account.deposit(500f);
+
+        assertEquals(10500f, account.balance);
+    }
+
+    @Test
+    void depositShouldNotChangeBalanceWhenAccountIsInactive() {
+        SavingsAccount account = new SavingsAccount(5000f, 5f);
+
+        account.deposit(500f);
+
+        assertEquals(5000f, account.balance);
+    }
+
 }
