@@ -44,4 +44,36 @@ public class CheckingAccountTest {
         assertEquals(500f, account.overdraft);
     }
 
+    @Test
+    void depositShouldIncreaseBalanceWhenThereIsNoOverdraft() {
+        CheckingAccount account = new CheckingAccount(1000f, 5f);
+
+        account.deposit(500f);
+
+        assertEquals(1500f, account.balance);
+        assertEquals(0f, account.overdraft);
+    }
+
+    @Test
+    void depositShouldFullyRepayOverdraftAndAddRemainderToBalance() {
+        CheckingAccount account = new CheckingAccount(500f, 5f);
+        account.withdraw(800f);
+
+        account.deposit(500f);
+
+        assertEquals(200f, account.balance);
+        assertEquals(0f, account.overdraft);
+    }
+
+    @Test
+    void depositShouldPartiallyRepayOverdraftWhenAmountIsSmallerThanDebt() {
+        CheckingAccount account = new CheckingAccount(500f, 5f);
+        account.withdraw(800f);
+
+        account.deposit(100f);
+
+        assertEquals(0f, account.balance);
+        assertEquals(200f, account.overdraft);
+    }
+
 }
