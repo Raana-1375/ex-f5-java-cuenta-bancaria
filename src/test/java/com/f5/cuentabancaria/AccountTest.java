@@ -13,4 +13,14 @@ public class AccountTest {
         assertEquals(5f, account.annualInterestRate);
     }
 
+    @Test
+    void depositShouldIncreaseBalanceAndDepositCount() {
+        Account account = new Account(1000f, 5f);
+
+        account.deposit(500f);
+
+        assertEquals(1500f, account.balance);
+        assertEquals(1, account.depositCount);
+    }
+
 }
