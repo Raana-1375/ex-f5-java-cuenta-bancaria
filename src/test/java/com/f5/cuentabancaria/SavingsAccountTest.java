@@ -101,4 +101,16 @@ public class SavingsAccountTest {
         assertEquals(0f, account.monthlyFee);
     }
 
+    @Test
+    void toStringShouldReturnFormattedSavingsAccountDetails() {
+        SavingsAccount account = new SavingsAccount(10000f, 5f);
+        account.deposit(500f);
+        account.withdraw(200f);
+        account.withdraw(200f);
+
+        String result = account.toString();
+
+        assertEquals("Balance: 10100.0, Monthly fee: 0.0, Transactions: 3", result);
+    }
+
 }
