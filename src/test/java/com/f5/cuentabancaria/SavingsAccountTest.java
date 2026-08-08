@@ -102,6 +102,16 @@ public class SavingsAccountTest {
     }
 
     @Test
+    void generateMonthlyStatementShouldSetActiveFalseWhenBalanceDropsBelowThreshold() {
+        SavingsAccount account = new SavingsAccount(10500f, 0f);
+        account.withdrawalCount = 10;
+
+        account.generateMonthlyStatement();
+
+        assertFalse(account.active);
+    }
+
+    @Test
     void toStringShouldReturnFormattedSavingsAccountDetails() {
         SavingsAccount account = new SavingsAccount(10000f, 5f);
         account.deposit(500f);
