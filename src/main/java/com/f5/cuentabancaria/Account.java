@@ -25,4 +25,9 @@ public class Account {
         }
     }
 
+    public void calculateInterest() {
+        float monthlyInterest = balance * (annualInterestRate / 100) / 12;
+        balance += monthlyInterest;
+    }
+
 }
