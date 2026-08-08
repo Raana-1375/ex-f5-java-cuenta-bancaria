@@ -33,4 +33,9 @@ public class CheckingAccount extends Account {
         super.deposit(amount);
     }
 
+    @Override
+    public void generateMonthlyStatement() {
+        super.generateMonthlyStatement();
+    }
+
 }
