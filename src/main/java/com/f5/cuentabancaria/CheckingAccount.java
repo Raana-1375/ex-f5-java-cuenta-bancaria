@@ -38,4 +38,13 @@ public class CheckingAccount extends Account {
         super.generateMonthlyStatement();
     }
 
+    @Override
+    public String toString() {
+        int transactionCount = depositCount + withdrawalCount;
+        return "Balance: " + balance +
+                ", Monthly fee: " + monthlyFee +
+                ", Transactions: " + transactionCount +
+                ", Overdraft: " + overdraft;
+    }
+
 }
