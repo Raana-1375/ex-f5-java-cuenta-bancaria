@@ -39,4 +39,22 @@ public class SavingsAccountTest {
         assertEquals(5000f, account.balance);
     }
 
+    @Test
+    void withdrawShouldDecreaseBalanceWhenAccountIsActive() {
+        SavingsAccount account = new SavingsAccount(10000f, 5f);
+
+        account.withdraw(500f);
+
+        assertEquals(9500f, account.balance);
+    }
+
+    @Test
+    void withdrawShouldNotChangeBalanceWhenAccountIsInactive() {
+        SavingsAccount account = new SavingsAccount(5000f, 5f);
+
+        account.withdraw(500f);
+
+        assertEquals(5000f, account.balance);
+    }
+
 }
