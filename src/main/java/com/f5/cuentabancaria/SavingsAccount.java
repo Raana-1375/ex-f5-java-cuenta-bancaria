@@ -9,4 +9,11 @@ public class SavingsAccount extends Account {
         active = balance >= 10000;
     }
 
+    @Override
+    public void deposit(float amount) {
+        if (active) {
+            super.deposit(amount);
+        }
+    }
+
 }
