@@ -16,4 +16,11 @@ public class SavingsAccount extends Account {
         }
     }
 
+    @Override
+    public void withdraw(float amount) {
+        if (active) {
+            super.withdraw(amount);
+        }
+    }
+
 }
