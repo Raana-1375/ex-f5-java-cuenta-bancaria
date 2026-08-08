@@ -12,9 +12,17 @@ public class Account {
         this.balance = balance;
         this.annualInterestRate = annualInterestRate;
     }
+
     public void deposit(float amount) {
-    balance += amount;
-    depositCount++;
-}
+        balance += amount;
+        depositCount++;
+    }
+
+    public void withdraw(float amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            withdrawalCount++;
+        }
+    }
 
 }
