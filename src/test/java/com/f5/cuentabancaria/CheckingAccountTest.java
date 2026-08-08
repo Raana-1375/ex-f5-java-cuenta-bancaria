@@ -76,4 +76,24 @@ public class CheckingAccountTest {
         assertEquals(200f, account.overdraft);
     }
 
+    @Test
+    void generateMonthlyStatementShouldSubtractFeeAndAddInterest() {
+        CheckingAccount account = new CheckingAccount(12000f, 12f);
+        account.monthlyFee = 200f;
+
+        account.generateMonthlyStatement();
+
+        assertEquals(11918f, account.balance);
+    }
+
+    @Test
+    void toStringShouldReturnFormattedCheckingAccountDetails() {
+        CheckingAccount account = new CheckingAccount(1000f, 5f);
+        account.withdraw(1500f);
+
+        String result = account.toString();
+
+        assertEquals("Balance: 0.0, Monthly fee: 0.0, Transactions: 1, Overdraft: 500.0", result);
+    }
+
 }
