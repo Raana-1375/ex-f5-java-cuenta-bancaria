@@ -23,4 +23,13 @@ public class SavingsAccount extends Account {
         }
     }
 
+    @Override
+    public void generateMonthlyStatement() {
+        if (withdrawalCount > 4) {
+            monthlyFee = (withdrawalCount - 4) * 1000;
+        }
+        super.generateMonthlyStatement();
+        active = balance >= 10000;
+    }
+
 }
