@@ -8,4 +8,9 @@ public class Account {
     protected float annualInterestRate;
     protected float monthlyFee;
 
+    public Account(float balance, float annualInterestRate) {
+        this.balance = balance;
+        this.annualInterestRate = annualInterestRate;
+    }
+
 }
