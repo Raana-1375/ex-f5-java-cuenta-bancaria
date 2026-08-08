@@ -62,4 +62,14 @@ public class AccountTest {
         assertEquals(11918f, account.balance);
     }
 
+    @Test
+    void toStringShouldReturnFormattedAccountDetails() {
+        Account account = new Account(1000f, 5f);
+
+        String result = account.toString();
+
+        assertEquals("Balance: 1000.0, Deposits: 0, Withdrawals: 0, Annual interest rate: 5.0, Monthly fee: 0.0",
+                result);
+    }
+
 }
