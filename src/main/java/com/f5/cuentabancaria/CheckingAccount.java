@@ -8,4 +8,15 @@ public class CheckingAccount extends Account {
         super(balance, annualInterestRate);
     }
 
+    @Override
+    public void withdraw(float amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            overdraft += amount - balance;
+            balance = 0;
+        }
+        withdrawalCount++;
+    }
+    
 }
