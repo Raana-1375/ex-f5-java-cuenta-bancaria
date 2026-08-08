@@ -87,4 +87,18 @@ public class SavingsAccountTest {
         assertEquals(17574f, account.balance);
     }
 
+    @Test
+    void generateMonthlyStatementShouldResetFeeToZeroAfterPreviousChargeCycle() {
+        SavingsAccount account = new SavingsAccount(20000f, 12f);
+        account.withdrawalCount = 6;
+        account.generateMonthlyStatement();
+
+        assertEquals(2000f, account.monthlyFee);
+
+        account.withdrawalCount = 2;
+        account.generateMonthlyStatement();
+
+        assertEquals(0f, account.monthlyFee);
+    }
+
 }
