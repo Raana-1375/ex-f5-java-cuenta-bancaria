@@ -34,5 +34,14 @@ public class Account {
         balance -= monthlyFee;
         calculateInterest();
     }
-    
+
+    @Override
+    public String toString() {
+        return "Balance: " + balance +
+                ", Deposits: " + depositCount +
+                ", Withdrawals: " + withdrawalCount +
+                ", Annual interest rate: " + annualInterestRate +
+                ", Monthly fee: " + monthlyFee;
+    }
+
 }
