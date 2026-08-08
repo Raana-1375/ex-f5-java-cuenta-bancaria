@@ -57,4 +57,18 @@ public class SavingsAccountTest {
         assertEquals(5000f, account.balance);
     }
 
+    @Test
+    void generateMonthlyStatementShouldNotChargeFeeWhenWithdrawalCountIsFourOrLess() {
+        SavingsAccount account = new SavingsAccount(20000f, 12f);
+        account.withdraw(100f);
+        account.withdraw(100f);
+        account.withdraw(100f);
+        account.withdraw(100f);
+
+        account.generateMonthlyStatement();
+
+        assertEquals(0f, account.monthlyFee);
+        assertEquals(19796f, account.balance);
+    }
+
 }
