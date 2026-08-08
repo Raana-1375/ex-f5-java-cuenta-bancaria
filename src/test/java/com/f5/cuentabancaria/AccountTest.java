@@ -23,4 +23,33 @@ public class AccountTest {
         assertEquals(1, account.depositCount);
     }
 
+    @Test
+    void withdrawShouldDecreaseBalanceAndWithdrawalCountWhenAmountIsValid() {
+        Account account = new Account(1000f, 5f);
+
+        account.withdraw(300f);
+
+        assertEquals(700f, account.balance);
+        assertEquals(1, account.withdrawalCount);
+    }
+
+    @Test
+    void withdrawShouldNotChangeBalanceWhenAmountExceedsBalance() {
+        Account account = new Account(1000f, 5f);
+
+        account.withdraw(1500f);
+
+        assertEquals(1000f, account.balance);
+        assertEquals(0, account.withdrawalCount);
+    }
+
+    @Test
+    void calculateInterestShouldAddMonthlyInterestToBalance() {
+        Account account = new Account(12000f, 12f);
+
+        account.calculateInterest();
+
+        assertEquals(12120f, account.balance);
+    }
+
 }
