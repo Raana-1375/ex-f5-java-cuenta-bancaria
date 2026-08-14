@@ -78,6 +78,10 @@ The project includes 27 unit tests across all three classes, covering constructo
 
 ![Coverage summary](assets/cuentabancaria.png)
 
+**VS Code Test Explorer (30/30 passing, 100% coverage):**
+
+![VS Code Test Explorer](assets/TestExplorer.png)
+
 ## Git workflow
 
 This project follows a feature-branch workflow with Conventional Commits (`feat:`, `fix:`, `test:`, `docs:`, `chore:`). Development happened on `feature/cuenta-classes`, merged into `main` via pull request once complete.
